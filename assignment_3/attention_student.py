@@ -82,7 +82,8 @@ class CustomStridedAttention(nn.Module):
         # to your custom CUDA kernel `strided_attention_forward`.
  
         # Using the naive implementation as a placeholder.
-        output = naive_strided_attention(q, k, v, self.stride)
+        # output = naive_strided_attention(q, k, v, self.stride)
+        output = strided_attention_forward(q,k,v, self.stride)
 
         # Reshape and project the output back to the original shape
         output = output.permute(0, 2, 1, 3).contiguous()
